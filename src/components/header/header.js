@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Container, Flex, Button } from 'theme-ui';
+import { jsx, Container, Flex, Button, Box } from 'theme-ui';
 import { keyframes } from '@emotion/core';
 import { Link } from 'react-scroll';
 import Logo from 'components/logo';
@@ -16,6 +16,7 @@ export default function Header({ className }) {
           {menuItems.map((menuItem, i) => (
             <Link
               activeClass="active"
+              to={menuItem.path}
               spy={true}
               smooth={true}
               offset={-70}
@@ -33,6 +34,7 @@ export default function Header({ className }) {
         >
           Get Started
         </Button>
+        <MobileDrawer />
       </Container>
     </header>
   );
