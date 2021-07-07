@@ -87,6 +87,7 @@ const styles = {
     justifyContent: 'center',
     flexShrink: '0',
     // width: '26px',
+    cursor: 'pointer',
 
     '@media screen and (min-width: 1024px)': {
       display: 'none',
