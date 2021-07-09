@@ -51,6 +51,18 @@ export default function KeyFeature() {
           slogan="What's the function"
           title="Meet the feature of our product"
         />
+
+        <Grid sx={styles.grid}>
+          {data.map((item) => (
+            <FeatureCardColumn
+              key={item.id}
+              src={item.imgSrc}
+              alt={item.altText}
+              title={item.title}
+              text={item.text}
+            />
+          ))}
+        </Grid>
       </Container>
     </section>
   );
@@ -60,6 +72,7 @@ const styles = {
   grid: {
     width: ['100%', '80%', '100%'],
     mx: 'auto',
+    mt: '50px',
     gridGap: [
       '35px 0',
       null,
