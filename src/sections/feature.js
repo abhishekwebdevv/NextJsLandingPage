@@ -45,7 +45,25 @@ const data = [
 
 export default function Feature() {
   return (
-   <h1>Feature</h1>
+    <section sx={{ variant: 'section.feature' }}>
+      <Container>
+        <SectionHeader
+          slogan="Quality Features"
+          title="Amazing Useful Features"
+        />
+        <Grid sx={styles.grid}>
+          {data.map((item) => (
+            <FeatureCard
+              key={item.id}
+              src={item.imgSrc}
+              altText={item.altText}
+              title={item.title}
+              text={item.text}
+            />
+          ))}
+        </Grid>
+      </Container>
+    </section>
   );
 }
 
@@ -53,6 +71,7 @@ const styles = {
   grid: {
     pt: [0, null, null, null, null, null, 2],
     px: [5, 6, 0, null, 7, 8, 7],
+    mt: '50px',
     gridGap: [
       '40px 0',
       null,

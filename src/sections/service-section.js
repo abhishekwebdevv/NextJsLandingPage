@@ -45,6 +45,8 @@ const data = {
 };
 
 export default function ServiceSection() {
+  const [videoOpen, setVideoOpen] = useState(false);
+
   const handleClick = (e) => {
     e.preventDefault();
     setVideoOpen(true);
@@ -70,8 +72,26 @@ export default function ServiceSection() {
         </Box>
         <Box sx={styles.contentBox}>
           <TextFeature subTitle={data.subTitle} title={data.title} />
+
+          <Grid sx={styles.grid}>
+            {data.features.map((item) => (
+              <Box sx={styles.card} key={item.id}>
+                <Image src={item.imgSrc} alt={item.altText} sx={styles.icon} />
+                <Box sx={styles.wrapper}>
+                  <Heading sx={styles.wrapper.title}>{item.title}</Heading>
+                  <Text sx={styles.wrapper.subTutle}>{item.text}</Text>
+                </Box>
+              </Box>
+            ))}
+          </Grid>
         </Box>
       </Container>
+      <ModalVideo
+        channel="youtube"
+        isOpen={videoOpen}
+        videoId="iGBERMGMIvc"
+        onClose={() => setVideoOpen(false)}
+      />
     </section>
   );
 }
