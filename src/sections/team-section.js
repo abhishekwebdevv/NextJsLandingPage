@@ -179,13 +179,33 @@ const data = [
 
 export default function TeamSection() {
   return (
-    <h1>Team Section</h1>
+    <section>
+      <Container>
+        <SectionHeader
+          slogan="Our Team"
+          title="The Most Qualified and Talented individuals"
+        />
+
+        <Grid sx={styles.grid}>
+          {data.map((item) => (
+            <TeamCard
+              key={item.id}
+              src={item.imgSrc}
+              altText={item.altText}
+              title={item.title}
+              designation={item.designation}
+              social={item.socialProfile}
+            />
+          ))}
+        </Grid>
+      </Container>
+    </section>
   );
 }
 
 const styles = {
   grid: {
-    mt: [0, null, -6, null, -4],
+    mt: 50,
     gridGap: ['35px 0px', null, 0, null, null, '30px 35px'],
     gridTemplateColumns: [
       'repeat(2,1fr)',
